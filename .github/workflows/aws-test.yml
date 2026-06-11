@@ -24,9 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install project dependencies
-        run: ./install.sh
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -35,6 +32,9 @@ jobs:
           cache-dependency-path: |
             package-lock.json
             client/package-lock.json
+
+      - name: Install project dependencies
+        run: ./install.sh
 
       - name: Install root dependencies
         run: npm ci
