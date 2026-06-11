@@ -2,7 +2,7 @@ name: Deploy Bakehouse
 
 on:
   push:
-    branches: [CiCdPipeline]
+    branches: [main]
 
 permissions:
   id-token: write
