@@ -36,10 +36,6 @@ jobs:
       - name: Install project dependencies
         run: bash ./install.sh
 
-      - name: Install root dependencies
-        run: npm ci
-        working-directory: client
-
       - name: Build client assets
         run: npm run build
         working-directory: client
@@ -95,8 +91,4 @@ jobs:
           AWS_REGION: ${{ env.AWS_REGION }}
 
       - name: CDK deploy
-        run: npx cdk deploy --profile student --require-approval never
-        env:
-          BAKEHOUSE_STACK_NAME: ${{ env.BAKEHOUSE_STACK_NAME }}
-          AWS_ACCOUNT_ID: ${{ env.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ env.AWS_REGION }}
+        run: npx cdk deploy --require-approval never
